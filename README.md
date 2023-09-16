@@ -11,7 +11,7 @@ This is a sample project to demonstrate how to use AWS Step Functions to orchest
 
 ## Architecture
 
-![Architecture OW](https://github.com/skaznowiecki/parallel-processing-step-function/blob/master/assets/architecture.png)
+![Architecture OW](https://github.com/skaznowiecki/parallel-processing-step-function/blob/main/assets/architecture.png)
 
 ### Considerations
 
