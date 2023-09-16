@@ -13,8 +13,6 @@ This is a sample project to demonstrate how to use AWS Step Functions to orchest
 
 ![Architecture OW](https://github.com/skaznowiecki/parallel-processing-step-function/blob/main/assets/architecture.png)
 
-### Considerations
-
 - Configure max items per batch in 25 in order to avoid throttling errors in DynamoDB and use the maximum throughput of the table.
 - The max concurrency of the Map State is 200 in order to avoid throttling errors in Lambda.
 
