@@ -1,16 +1,18 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as cdk from 'aws-cdk-lib'
+import { Construct } from 'constructs'
+import { processCsvItemsFunction } from './process-csv-items'
+import { constructCSVBucket } from './resources/csv-bucket'
+import { constructCSVTable } from './resources/csv-table'
+import { constructStepFunction } from './step-function'
 
 export class ParallelProcessingStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+    super(scope, id, props)
 
-    // The code that defines your stack goes here
+    const bucket = constructCSVBucket(this)
+    const table = constructCSVTable(this)
+    const lambda = processCsvItemsFunction(this, table)
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'ParallelProcessingQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    constructStepFunction(this, bucket, lambda)
   }
 }
